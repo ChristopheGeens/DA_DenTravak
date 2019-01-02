@@ -27,7 +27,7 @@ public class Application {
     public static LocalDateTime now = LocalDateTime.now();
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(ServiceDiscoveryApplication.class)
+        new SpringApplicationBuilder(Application.class)
                 .web(true).run(args);
     }
 

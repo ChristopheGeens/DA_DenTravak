@@ -54,10 +54,6 @@ public class RESTController {
         sandwichOrderRepository.deleteById(id);
     }
 
-    @RequestMapping("/ingredients")
-    public List<String> getIngredients() {
-        return Arrays.asList(null);
-    }
 
     @RequestMapping("/sandwiches")
     public List<Sandwich> getSandwiches() {

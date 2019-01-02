@@ -7,5 +7,6 @@ import java.util.UUID;
 
 public interface SandwichRepository extends CrudRepository<Sandwich,UUID> {
 
+    Sandwich findSandwichByName(String name);
 
 }

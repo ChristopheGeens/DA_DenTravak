@@ -47,4 +47,44 @@ public class RecommendedItem {
     public void setRating(float rating) {
         this.rating = rating;
     }
+
+
+    public static class RecommendItemBuilder{
+
+        private String emailAddress;
+        private UUID ratedItem;
+        private float rating;
+
+        private RecommendItemBuilder(){}
+
+        public static RecommendItemBuilder aRecommendedItem(){
+            return new RecommendItemBuilder();
+        }
+
+        public RecommendItemBuilder withRecommendedItemEmail(String emailAddress) {
+            this.emailAddress = emailAddress;
+            return this;
+        }
+
+        public RecommendItemBuilder withRecommendedItemRatedItem(UUID ratedItem) {
+            this.ratedItem = ratedItem;
+            return this;
+        }
+
+        public RecommendItemBuilder withRecommendedItemRating(float rating) {
+            this.rating = rating;
+            return this;
+        }
+
+        //build
+        public RecommendedItem build(){
+            RecommendedItem recommendedItem = new RecommendedItem();
+
+            recommendedItem.emailAddress = this.emailAddress;
+            recommendedItem.ratedItem = this.ratedItem;
+            recommendedItem.rating = this.rating;
+
+            return recommendedItem;
+        }
+    }
 }

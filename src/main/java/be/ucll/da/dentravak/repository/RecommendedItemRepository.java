@@ -10,4 +10,7 @@ public interface RecommendedItemRepository extends CrudRepository<RecommendedIte
 
     List<RecommendedItem> findAllByEmailAddress(String emailAddress);
 
+    List<RecommendedItem> findAllByRating(String emailAddress);
+
+
 }

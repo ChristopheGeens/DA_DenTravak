@@ -96,6 +96,11 @@ public class SandwichOrder {
             return this;
         }
 
+        public SandwichOrderBuilder withCreationDate() {
+            this.creationDate = LocalDateTime.now();
+            return this;
+        }
+
         public SandwichOrderBuilder withCreationDate(LocalDateTime date) {
             this.creationDate = date;
             return this;

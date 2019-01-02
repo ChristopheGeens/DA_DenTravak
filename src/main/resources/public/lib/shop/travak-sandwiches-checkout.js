@@ -35,15 +35,20 @@ class DenTravakSandwichesCheckout extends DenTravakAbstractElement {
         order.name = name;
         order.mobilePhoneNumber =phone;
         if(boterham){
-            order.breadType = "Boterhammekes";
+            order.breadType = "boterhammekes";
         }
         else if(wrap){
-            order.breadType = "Wrap";
+            order.breadType = "wrap";
         }
         else if(turksbrood){
-            order.breadType = "Turks Brood";
+            order.breadType = "turksBrood";
         }
-        console.log(order.breadType);
+        console.log(this.sandwich);
+        console.log(this.sandwich.id);
+        console.log(this.sandwich.name);
+
+        order.sandwichId = this.sandwich.id;
+
         console.log(order);
 
         fetch('http://localhost:8080/orders', {

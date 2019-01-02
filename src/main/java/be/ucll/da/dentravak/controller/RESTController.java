@@ -35,9 +35,11 @@ public class RESTController {
     @RequestMapping(value = "/orders", method = RequestMethod.POST)
     public SandwichOrder addSandwichOrder(@RequestBody SandwichOrder sandwichOrder){
         SandwichOrder order = new SandwichOrder();
+        order.setCreationDate(LocalDateTime.now());
         order.setBreadType(sandwichOrder.getBreadType());
         order.setName(sandwichOrder.getName());
         order.setMobilePhoneNumber(sandwichOrder.getMobilePhoneNumber());
+        order.setSandwichId(sandwichOrder.getSandwichId());
         sandwichOrderRepository.save(order);
         return order;
     }
@@ -82,10 +84,8 @@ public class RESTController {
     public Sandwich editSandwich(@PathVariable UUID id, @RequestBody Sandwich sandwich) {
         System.out.println(id + "/" + "NAME=" + sandwich.getName() + " ID=" + sandwich.getId() + " INGR=" + sandwich.getIngredients());
         if(id.equals(sandwich.getId())){
-            System.out.println("SAVED");
             sandwichRepository.save(sandwich);
         }
-        System.out.println("NOT SAVED");
         return sandwich;
     }
 

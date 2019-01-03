@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: dentravak
   profiles: container
   datasource:
     url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?autoReconnect=true&failOverReadOnly=false&maxReconnects=10&allowPublicKeyRetrieval=true&useSSL=false
@@ -14,8 +16,12 @@ spring:
   cloud:
     consul:
       host: consul
-      port: 8222
+      port: 8500
       discovery:
         instanceId: ${spring.application.name}:${random.value}
         healthCheckPath: /health-check
         healthCheckInterval: 20s
+server:
+  port: 8080
+  servlet:
+    context-path: /den-travak

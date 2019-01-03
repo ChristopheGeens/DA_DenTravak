@@ -14,7 +14,11 @@ services:
     image: den-travak-app:0.0.1-SNAPSHOT
     depends_on:
       - mysql
+      - consul
     restart: unless-stopped
+    labels:
+      - "traefik.port=8080"
+      - "traefik.frontend.rule=PathPrefix:/den-travak/"
     ports:
       - 8234:8080
     environment:
@@ -24,3 +28,22 @@ services:
       - DATABASE_PASSWORD=dbp4ss
       - DATABASE_NAME=den-travak-app
       - DATABASE_PORT=3306
+  consul:
+      image: consul
+      restart: unless-stopped
+      ports:
+        - 8500:8500
+      labels:
+        - "traefik.port=8500"
+        - "traefik.frontend.rule=PathPrefixStrip:/consul/"
+        - "traefik.frontend.rule=PathPrefix:/ui/,/v1/"
+  recommendation:
+      image: recommendation-app:0.0.1-SNAPSHOT
+      restart: unless-stopped
+      depends_on:
+        - consul
+      ports:
+        - 8235:8081
+      labels:
+        - "traefik.port=8081"
+        - "traefik.frontend.rule=PathPrefix:/recommendation/"

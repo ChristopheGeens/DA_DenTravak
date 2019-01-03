@@ -14,7 +14,7 @@ spring:
   cloud:
     consul:
       host: consul
-      port: 8500
+      port: 8222
       discovery:
         instanceId: ${spring.application.name}:${random.value}
         healthCheckPath: /health-check

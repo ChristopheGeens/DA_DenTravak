@@ -39,7 +39,7 @@ public class Application {
             sandwichRepository.save(Sandwich.SandwichBuilder.aSandwich().withName("Martino").withIngredients("Américain,Ui,Augurk,Martinosaus").withPrice(new BigDecimal("3.20")).build());
             sandwichRepository.save(Sandwich.SandwichBuilder.aSandwich().withName("Ei en spek").withIngredients("Eieren,spek").withPrice(new BigDecimal("4.20")).build());
             System.out.println(now);
-            sandwichOrderRepository.save(SandwichOrder.SandwichOrderBuilder.anOrder().withSandwichName("Smos").withBreadType(BreadTypeEnum.BOTERHAMMEKES).withMobilePhoneNumber("0498/157802").build());
+            sandwichOrderRepository.save(SandwichOrder.SandwichOrderBuilder.anOrder().withSandwichName("Smos").withBreadType(BreadTypeEnum.BOTERHAMMEKES).withMobilePhoneNumber("0498/157802").withCreationDate(LocalDateTime.now()).build());
 
             UUID smosID = sandwichRepository.findSandwichByName("Smos").getId();
             System.out.println("SMOS : " +smosID);

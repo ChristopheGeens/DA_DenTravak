@@ -35,7 +35,7 @@ public class RESTController {
     @RequestMapping(value = "/orders", method = RequestMethod.POST)
     public SandwichOrder addSandwichOrder(@RequestBody SandwichOrder sandwichOrder){
         SandwichOrder order = new SandwichOrder();
-        order.setCreationDate(LocalDateTime.now());
+        //order.setCreationDate(LocalDateTime.now());
         order.setBreadType(sandwichOrder.getBreadType());
         order.setName(sandwichOrder.getName());
         order.setMobilePhoneNumber(sandwichOrder.getMobilePhoneNumber());

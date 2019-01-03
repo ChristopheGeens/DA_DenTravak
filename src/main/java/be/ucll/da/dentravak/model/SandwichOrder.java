@@ -1,16 +1,11 @@
 package be.ucll.da.dentravak.model;
 
-import be.ucll.da.dentravak.repository.JpaJsonConverter;
-import org.apache.tomcat.jni.Local;
-import org.springframework.format.annotation.DateTimeFormat;
+import be.ucll.da.dentravak.repository.LocalDateTimeConverter;
 //import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,6 +19,8 @@ public class SandwichOrder {
     private BreadTypeEnum breadType;
     private BigDecimal price;
     private String mobilePhoneNumber;
+
+    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime creationDate;
 
     public SandwichOrder(){
